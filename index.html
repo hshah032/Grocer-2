@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp> -->
+   <!--Accordian style navigation code taken from https://www.w3schools.com/howto/howto_js_accordion.asp-->
+  <title> MalMart </title>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+  <h1> MalMart </h1>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+
+
+<button class="accordion">Tell us a bit about you.</button>
+<div class="panel">
+<h3>Select Your Dietary Preferences</h3>
+
+  <label class="container">Vegetarian
+    <input type="checkbox" id="veg" value="Vegetarian" onclick="populateListProductChoices(this.id)">
+    <span class="checkmark"></span>
+  </label>
+  
+  <label class="container">No Gluten
+    <input type="checkbox" id="glute" value="GlutenFree" onclick="populateListProductChoices(this.id)">
+    <span class="checkmark"></span>
+  </label>
+  
+  <label class="container">Organic
+    <input type="checkbox" id="organ" value="Organic" onclick="populateListProductChoices(this.id)">
+    <span class="checkmark"></span>
+  </label>
+  
+  <label class="container"> None
+    <input type="checkbox" id="pref" value="None" onclick="populateListProductChoices(this.id)">
+    <span class="checkmark"></span>
+  </label> 
+
+  </div>
+  </button>
+
+<button class="accordion">Choose Your Groceries</button>
+<div class="panel">
+  <h3>Here are some items we think you'll like</h3>
+	 Choose items to buy:
+	 
+    <div class="tab">
+      <button class="tablinks" onclick="openInfo(event, 'Produce')">Produce</button>
+      <button class="tablinks" onclick="openInfo(event, 'Meat, Seafood, and Alternatives')">Meat, Seafood, and Alternatives</button>
+      <button class="tablinks" onclick="openInfo(event, 'Bread and Bakery')">Bread and Bakery</button>
+      <button class="tablinks" onclick="openInfo(event, 'Chips, Cookies, and Other')">Chips, Cookies, and Other</button>
+
+    </div> 
+
+    <div id="Produce" class="tabcontent">
+      <div id="displayProduce"> </div>       
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart.
+	</button> 
+    </div>
+    
+    <div id="Meat, Seafood, and Alternatives" class="tabcontent">
+      <div id="displayMeat"> </div> 
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart.
+	</button>
+    </div>
+    
+    <div id="Bread and Bakery" class="tabcontent">
+      <div id="displayBread"> </div> 
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart.
+	</button>
+    </div> 
+
+    <div id="Chips, Cookies, and Other" class="tabcontent">
+      <div id="displayCook"> </div> 
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart.
+	</button>
+    </div> 
+    
+  </div>
+
+<button class="accordion">Your Cart</button>
+<div class="panel">
+  <h3>Cart</h3>
+  <p>Here's what you've picked.</p>
+  <div id="displayCart"></div></div>
+
+<div id="footer">
+
+  <footer> Made by Hussam Shah</footer>
+
+</div>
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+  </script>
+
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
